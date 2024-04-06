@@ -152,7 +152,6 @@ jobs:
       - name: Create release description
         run: |
           (
-            echo '- [Build #${{ github.run_number }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})'
             echo '- [Workflow file](https://github.com/${{ github.repository }}/blob/${{ github.sha }}/.github/workflows/autobuild.yml)'
             echo
             echo '## Files'
@@ -207,8 +206,8 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          name: "Build #${{ github.run_number }}"
-          tag_name: run-${{ github.run_number }}
+          name: "${{ env.MOSH_TAG }}"
+          tag_name: ${{ env.MOSH_TAG }}
           prerelease: false
           draft: false
           body_path: release.md
