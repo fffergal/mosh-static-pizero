@@ -16,6 +16,7 @@ RUN apk update && \
   autoconf \
   automake \
   build-base \
+  git \
   ncurses-dev \
   ncurses-static \
   openssh-client \
