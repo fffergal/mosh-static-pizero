@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        architecture: [raspi0]
+        architecture: [armhf]
 
     steps:
       - name: Checkout code
@@ -93,7 +93,7 @@ jobs:
           ) | tee release.md
       
       - id: upload_artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: release.md
           path: release.md
