@@ -37,13 +37,13 @@ jobs:
           mv mosh/src/frontend/mosh-server mosh/src/frontend/mosh-server-$MOSH_TAG-linux-${{ matrix.architecture }}
           mv mosh/src/frontend/mosh-client mosh/src/frontend/mosh-client-$MOSH_TAG-linux-${{ matrix.architecture }}
       
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: mosh-server-${{ env.MOSH_TAG }}-linux-${{ matrix.architecture }}
           path: mosh/src/frontend/mosh-server-${{ env.MOSH_TAG }}-linux-${{ matrix.architecture }}
           if-no-files-found: error
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: mosh-client-${{ env.MOSH_TAG }}-linux-${{ matrix.architecture }}
           path: mosh/src/frontend/mosh-client-${{ env.MOSH_TAG }}-linux-${{ matrix.architecture }}
@@ -57,7 +57,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Download artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
       
       - name: Create release description
         run: |
